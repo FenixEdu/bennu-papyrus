@@ -1,0 +1,21 @@
+package org.fenixedu.bennu.papyrus.domain;
+
+class PapyrusTemplate {
+    String name;
+    LocalizedString displayName (REQUIRED);
+    String templateHtml (REQUIRED);
+    Locale locale (REQUIRED);
+
+    protected JsonElement signatureFieldSettingsElement;
+    protected JsonElement printSettingsElement;
+}
+
+
+relation BennuDeclarationTemplates {
+    .org.fenixedu.bennu.core.domain.Bennu playsRole bennuPapyrusTemplates {
+        multiplicity 1..1;
+    }
+    PapyrusTemplate playsRole papyrusTemplate {
+        multiplicity *;
+    }
+}
