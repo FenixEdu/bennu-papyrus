@@ -11,11 +11,12 @@ public class BennuPapyrusSpringConfiguration {
 
     @Bean
     public PapyrusClient papyrusClient() {
-        return new PapyrusClient(PapyrusConfiguration.getConfiguration().papyrusUrl(), PapyrusConfiguration.getConfiguration().papyrusToken());
+        return new PapyrusClient(PapyrusConfiguration.getConfiguration().papyrusUrl(),
+                PapyrusConfiguration.getConfiguration().papyrusToken());
     }
 
     @Bean
     public PapyrusSettings defaultSettings() {
-        return PapyrusSettings.newBuilder().landscape(true).size("A4").pdfA(true).build();
+        return PapyrusSettings.newBuilder().landscape(false).format("A4").pdfA(true).build();
     }
 }
