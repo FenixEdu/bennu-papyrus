@@ -11,14 +11,14 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>bennu-papyrus</artifactId>
-    <version>3.0.0</version>
+    <version>DEV-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Bennu Papyrus Integration</name>
          
     <issueManagement>
-        <system>JIRA</system>
-        <url>https://jira.fenixedu.org/browse/BNNPYRS</url>
+        <system>GitLab</system>
+        <url>https://repo.dsi.tecnico.ulisboa.pt/bennu/application/bennu-papyrus/-/issues</url>
     </issueManagement>
     
     <scm>
