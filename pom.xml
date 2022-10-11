@@ -31,7 +31,7 @@
     <properties>
         <version.org.fenixedu.bennu>6.5.0</version.org.fenixedu.bennu>
         <version.org.fenixedu.bennu.spring>6.5.0</version.org.fenixedu.bennu.spring>
-        <version.pt.ist.papyrus.client>3.1.1</version.pt.ist.papyrus.client>
+        <version.pt.ist.papyrus.client>3.1.2</version.pt.ist.papyrus.client>
         <version.com.itextpdf.itextpdf>5.5.13</version.com.itextpdf.itextpdf>
     </properties>
 
@@ -69,18 +69,14 @@
     </dependencies>
     <distributionManagement>
         <repository>
-            <id>dsi-maven-artifacts</id>
-            <url>https://fenix-ashes.ist.utl.pt/nexus/repository/dsi-private-repo</url>
+            <id>fenixedu-contrib-releases</id>
+            <url>https://repo.fenixedu.org/fenixedu-contrib-releases</url>
         </repository>
     </distributionManagement>
     <repositories>
         <repository>
             <id>fenixedu-maven-repository</id>
             <url>https://repo.fenixedu.org/fenixedu-maven-repository</url>
-        </repository>
-        <repository>
-            <id>dsi-maven-artifacts</id>
-            <url>https://fenix-ashes.ist.utl.pt/nexus/repository/dsi-private-repo</url>
         </repository>
     </repositories>
 </project>
