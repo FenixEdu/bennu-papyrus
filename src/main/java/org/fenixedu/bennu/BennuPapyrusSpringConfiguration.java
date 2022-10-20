@@ -12,7 +12,7 @@ public class BennuPapyrusSpringConfiguration {
 
     @Bean
     public PapyrusClient papyrusClient() {
-        return new PapyrusClient(); // The template used here has to belong to the SI team
+        return new PapyrusClient();
     }
 
     @ConfigurationManager(description = "IT services Papyrus team")
