@@ -29,9 +29,8 @@
     </scm>
 
     <properties>
-        <version.org.fenixedu.bennu>6.5.0</version.org.fenixedu.bennu>
-        <version.org.fenixedu.bennu.spring>6.5.0</version.org.fenixedu.bennu.spring>
-        <version.pt.ist.papyrus.client>3.1.4</version.pt.ist.papyrus.client>
+        <version.org.fenixedu.bennu>6.26.0</version.org.fenixedu.bennu>
+        <version.pt.ist.papyrus.client>4.0.0</version.pt.ist.papyrus.client>
         <version.com.itextpdf.itextpdf>5.5.9</version.com.itextpdf.itextpdf>
     </properties>
 
@@ -59,7 +58,7 @@
         <dependency>
             <groupId>org.fenixedu</groupId>
             <artifactId>bennu-spring</artifactId>
-            <version>${version.org.fenixedu.bennu.spring}</version>
+            <version>${version.org.fenixedu.bennu}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
