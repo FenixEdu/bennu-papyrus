@@ -11,7 +11,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>bennu-papyrus</artifactId>
-    <version>DEV-SNAPSHOT</version>
+    <version>4.0.1</version>
     <packaging>jar</packaging>
 
     <name>Bennu Papyrus Integration</name>
