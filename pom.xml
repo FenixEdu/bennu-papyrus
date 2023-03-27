@@ -31,7 +31,7 @@
     <properties>
         <version.org.fenixedu.bennu>6.26.0</version.org.fenixedu.bennu>
         <version.pt.ist.papyrus.client>4.0.0</version.pt.ist.papyrus.client>
-        <version.com.itextpdf.itextpdf>5.5.9</version.com.itextpdf.itextpdf>
+        <version.com.itextpdf.itextpdf>5.5.13.3</version.com.itextpdf.itextpdf>
     </properties>
 
     <dependencies>
