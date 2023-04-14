@@ -29,9 +29,9 @@
     </scm>
 
     <properties>
-        <version.org.fenixedu.bennu>6.26.0</version.org.fenixedu.bennu>
+        <version.org.fenixedu.bennu>6.30.0</version.org.fenixedu.bennu>
         <version.pt.ist.papyrus.client>4.0.0</version.pt.ist.papyrus.client>
-        <version.com.itextpdf.itextpdf>5.5.9</version.com.itextpdf.itextpdf>
+        <version.com.itext>7.2.5</version.com.itext>
     </properties>
 
     <dependencies>
@@ -50,10 +50,40 @@
             <artifactId>papyrus-client</artifactId>
             <version>${version.pt.ist.papyrus.client}</version>
         </dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>kernel</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>layout</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>io</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>sign</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>pdfa</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>forms</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
-            <artifactId>itextpdf</artifactId>
-            <version>${version.com.itextpdf.itextpdf}</version>
+	    <artifactId>barcodes</artifactId>
+            <version>${version.com.itext}</version>
         </dependency>
         <dependency>
             <groupId>org.fenixedu</groupId>
