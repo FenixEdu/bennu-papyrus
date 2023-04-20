@@ -1,6 +1,6 @@
 package org.fenixedu.bennu.papyrus.service;
 
-import com.itextpdf.barcodes.BarcodeDataMatrix;
+import com.itextpdf.barcodes.BarcodeQRCode;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
@@ -19,10 +19,8 @@ public class ITextQRCodeGenerator implements QRCodeGenerator {
     @Override
     public byte[] generate(String identifier, int width, int height) throws QRCodeGenerationException {
         try (ByteArrayOutputStream bytes = new ByteArrayOutputStream()) {
-            final BarcodeDataMatrix matrix =new BarcodeDataMatrix(identifier);
-            matrix.setWidth(width);
-            matrix.setHeight(height);
-            final Image image = matrix.createAwtImage(Color.BLACK, Color.WHITE);
+            final BarcodeQRCode barcodeQRCode = new BarcodeQRCode(identifier);
+            final Image image = barcodeQRCode.createAwtImage(Color.BLACK, Color.WHITE).getScaledInstance(width, height, Image.SCALE_SMOOTH);
             BufferedImage buffer =
                     new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_RGB);
             buffer.getGraphics().drawImage(image, 0, 0, null);
