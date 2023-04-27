@@ -59,7 +59,7 @@ public class PapyrusTemplate extends PapyrusTemplate_Base {
 
     public static Optional<? extends PapyrusTemplate> findByNameAndLocale(String name, Locale locale) {
         return Bennu.getInstance().getPapyrusTemplateSet().stream()
-                   .filter(template -> template.getName().equals(name) && template.getLocale().equals(locale)).findAny();
+                   .filter(template -> template.getName().equals(name) && template.getLocale().getLanguage().equals(locale.getLanguage())).findAny();
     }
 
 }
