@@ -11,7 +11,7 @@
 
     <groupId>org.fenixedu</groupId>
     <artifactId>bennu-papyrus</artifactId>
-    <version>5.0.2</version>
+    <version>DEV-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Bennu Papyrus Integration</name>
@@ -25,7 +25,7 @@
         <connection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:bennu/application/bennu-papyrus.git</connection>
         <developerConnection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:bennu/application/bennu-papyrus.git</developerConnection>
         <url>http://fenixedu.org</url>
-        <tag>v5.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
