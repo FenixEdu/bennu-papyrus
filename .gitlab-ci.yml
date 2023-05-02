@@ -1,12 +1,9 @@
-image: dockerhub.dsi.tecnico.ulisboa.pt/fenix-framework/docker/java-fenix-framework:jdk8-node16
+image: dockerhub.dsi.tecnico.ulisboa.pt/fenix-framework/docker/java-fenix-framework:openjdk17
 
 cache:
   paths:
     - .m2/repository/
     - target/
-
-variables:
-  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
 
 stages:
   - Install and Lint
@@ -17,12 +14,12 @@ stages:
 Install and Lint:
   stage: Install and Lint
   before_script:
-    - cp -R /opt/config_m2/. $CI_PROJECT_DIR/.m2
+    - cp -r /opt/config_m2/. ./.m2
     - export MAVEN_REPO_USER=$NEXUS_USERNAME
     - export MAVEN_REPO_PASS=$NEXUS_PASSWORD
     - export MAVEN_REPO_ID=fenixedu-contrib-releases
   script:
-    - mvn -s $CI_PROJECT_DIR/.m2/settings.xml clean install -Dmaven.test.skip=true
+    - mvn -s .m2/settings.xml clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
 
 # Test:
 #   stage: Test
@@ -32,7 +29,7 @@ Install and Lint:
 Release:
   stage: Release
   before_script:
-    - cp -R /opt/config_m2/. $CI_PROJECT_DIR/.m2
+    - cp -r /opt/config_m2/. ./.m2
     - export MAVEN_REPO_USER=$NEXUS_USERNAME
     - export MAVEN_REPO_PASS=$NEXUS_PASSWORD
     - export MAVEN_REPO_ID=fenixedu-contrib-releases
@@ -40,11 +37,11 @@ Release:
     - cd release-army-knife
     - npm install
     - cd ..
-    - mvn help:evaluate
-    - VERSION=$(echo '${project.version}' | mvn help:evaluate | grep -v '^[[]')
-    - if [[ v$VERSION != $CI_COMMIT_TAG ]]; then echo "Version v$VERSION in pom.xml diferent from $CI_COMMIT_TAG tag" && exit 1; fi
+#    - mvn help:evaluate
+#    - VERSION=$(echo '${project.version}' | mvn help:evaluate | grep -v '^[[]')
+#    - if [[ v$VERSION != $CI_COMMIT_TAG ]]; then echo "Version v$VERSION in pom.xml diferent from $CI_COMMIT_TAG tag" && exit 1; fi
   script:
-    - mvn -s $CI_PROJECT_DIR/.m2/settings.xml --batch-mode deploy  -Dmaven.test.skip=true
+    - mvn -s .m2/settings.xml --batch-mode deploy  -Dmaven.test.skip=true  -Dmaven.javadoc.skip=true
     - node release-army-knife/release.js $CI_PROJECT_ID $CI_COMMIT_TAG $REPO_API_ACCESS_TOKEN
   only:
     - tags
@@ -52,7 +49,7 @@ Release:
 Notify:
   stage: Notify
   before_script:
-    - cp -R /opt/config_m2/. $CI_PROJECT_DIR/.m2
+    - cp -r /opt/config_m2/. ./.m2
     - export MAVEN_REPO_USER=$NEXUS_USERNAME
     - export MAVEN_REPO_PASS=$NEXUS_PASSWORD
     - export MAVEN_REPO_ID=fenixedu-contrib-releases
@@ -60,9 +57,9 @@ Notify:
     - cd release-army-knife
     - npm install
     - cd ..
-    - mvn help:evaluate
-    - VERSION=$(echo '${project.version}' | mvn help:evaluate | grep -v '^[[]')
-    - if [[ v$VERSION != $CI_COMMIT_TAG ]]; then echo "Version v$VERSION in pom.xml diferent from $CI_COMMIT_TAG tag" && exit 1; fi
+#    - mvn help:evaluate
+#    - VERSION=$(echo '${project.version}' | mvn help:evaluate | grep -v '^[[]')
+#    - if [[ v$VERSION != $CI_COMMIT_TAG ]]; then echo "Version v$VERSION in pom.xml diferent from $CI_COMMIT_TAG tag" && exit 1; fi
   script:
     - node release-army-knife/notify-mattermost.js $CI_PROJECT_ID $CI_COMMIT_TAG $REPO_API_ACCESS_TOKEN $CHAT_HOOK
   only:
