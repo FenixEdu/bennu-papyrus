@@ -15,14 +15,17 @@ import java.io.IOException;
 
 @Service
 public class ITextQRCodeGenerator implements QRCodeGenerator {
-    
+
     @Override
     public byte[] generate(String identifier, int width, int height) throws QRCodeGenerationException {
         try (ByteArrayOutputStream bytes = new ByteArrayOutputStream()) {
             final BarcodeQRCode barcodeQRCode = new BarcodeQRCode(identifier);
-            final Image image = barcodeQRCode.createAwtImage(Color.BLACK, Color.WHITE).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-            BufferedImage buffer =
-                    new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_RGB);
+            final Image image = barcodeQRCode.createAwtImage(Color.BLACK, Color.WHITE)
+                    .getScaledInstance(width, height, Image.SCALE_SMOOTH);
+            BufferedImage buffer = new BufferedImage(image.getWidth(null),
+                    image.getHeight(null),
+                    BufferedImage.TYPE_INT_RGB
+            );
             buffer.getGraphics().drawImage(image, 0, 0, null);
             ImageIO.write(buffer, "png", bytes);
             return bytes.toByteArray();

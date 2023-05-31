@@ -15,12 +15,12 @@
     <packaging>jar</packaging>
 
     <name>Bennu Papyrus Integration</name>
-         
+
     <issueManagement>
         <system>GitLab</system>
         <url>https://repo.dsi.tecnico.ulisboa.pt/bennu/application/bennu-papyrus/-/issues</url>
     </issueManagement>
-    
+
     <scm>
         <connection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:bennu/application/bennu-papyrus.git</connection>
         <developerConnection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:bennu/application/bennu-papyrus.git</developerConnection>
@@ -30,7 +30,7 @@
 
     <properties>
         <version.org.fenixedu.bennu>7.0.0</version.org.fenixedu.bennu>
-        <version.pt.ist.papyrus.client>4.0.0</version.pt.ist.papyrus.client>
+        <version.pt.ist.papyrus.client>5.0.0</version.pt.ist.papyrus.client>
         <version.com.itext>7.2.5</version.com.itext>
     </properties>
 

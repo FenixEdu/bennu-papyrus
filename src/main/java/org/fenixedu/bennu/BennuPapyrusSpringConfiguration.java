@@ -15,17 +15,17 @@ public class BennuPapyrusSpringConfiguration {
         return new PapyrusClient();
     }
 
-    @ConfigurationManager(description = "IT services Papyrus team")
-    public interface ConfigurationProperties {
-        @ConfigurationProperty(key = "papyrus.4e4ab43c-9da3-444f-9317-2b6cce7a5cb2.url", defaultValue = "https://master.papyrus-tecnico.al.vps.tecnico.ulisboa.pt")
-        public String getPapyrusUrl();
-
-        @ConfigurationProperty(key = "papyrus.4e4ab43c-9da3-444f-9317-2b6cce7a5cb2.token", defaultValue = "SecretToken")
-        public String getPapyrusToken();
-    }
-
     @Bean
     public PapyrusSettings defaultSettings() {
         return PapyrusSettings.newBuilder().landscape(false).format("A4").pdfA(true).build();
+    }
+
+    @ConfigurationManager(description = "IT services Papyrus team")
+    public interface ConfigurationProperties {
+        @ConfigurationProperty(key = "papyrus.4e4ab43c-9da3-444f-9317-2b6cce7a5cb2.url", defaultValue = "https://master.papyrus-tecnico.al.vps.tecnico.ulisboa.pt")
+        String getPapyrusUrl();
+
+        @ConfigurationProperty(key = "papyrus.4e4ab43c-9da3-444f-9317-2b6cce7a5cb2.token", defaultValue = "SecretToken")
+        String getPapyrusToken();
     }
 }
