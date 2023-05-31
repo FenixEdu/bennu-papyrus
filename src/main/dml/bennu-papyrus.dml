@@ -1,6 +1,7 @@
 package org.fenixedu.bennu.papyrus.domain;
 
 class PapyrusTemplate {
+    String teamId;
     String name;
     LocalizedString displayName (REQUIRED);
     String templateHtml (REQUIRED);
