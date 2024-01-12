@@ -64,6 +64,6 @@ Notify:
     - VERSION=$(echo '${project.version}' | mvn help:evaluate | grep -v '^[[]')
     - if [[ v$VERSION != $CI_COMMIT_TAG ]]; then echo "Version v$VERSION in pom.xml diferent from $CI_COMMIT_TAG tag" && exit 1; fi
   script:
-    - node release-army-knife/notify-mattermost.js $CI_PROJECT_ID $CI_COMMIT_TAG $REPO_API_ACCESS_TOKEN $CHAT_HOOK
+    - notify-mattermost.js $CI_PROJECT_ID $CI_COMMIT_TAG $REPO_API_ACCESS_TOKEN $BOT_TOKEN $CHANNEL_ID
   only:
     - tags
