@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.fenixedu</groupId>
         <artifactId>fenix-framework-project</artifactId>
-        <version>2.5.2</version>
+        <version>3.0.0-beta1</version>
         <relativePath />
     </parent>
 
@@ -15,12 +15,12 @@
     <packaging>jar</packaging>
 
     <name>Bennu Papyrus Integration</name>
-         
+
     <issueManagement>
         <system>GitLab</system>
         <url>https://repo.dsi.tecnico.ulisboa.pt/bennu/application/bennu-papyrus/-/issues</url>
     </issueManagement>
-    
+
     <scm>
         <connection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:bennu/application/bennu-papyrus.git</connection>
         <developerConnection>scm:git:git@repo.dsi.tecnico.ulisboa.pt:bennu/application/bennu-papyrus.git</developerConnection>
@@ -29,9 +29,9 @@
     </scm>
 
     <properties>
-        <version.org.fenixedu.bennu>6.26.0</version.org.fenixedu.bennu>
-        <version.pt.ist.papyrus.client>4.0.0</version.pt.ist.papyrus.client>
-        <version.com.itextpdf.itextpdf>5.5.9</version.com.itextpdf.itextpdf>
+        <version.org.fenixedu.bennu>7.0.0</version.org.fenixedu.bennu>
+        <version.pt.ist.papyrus.client>5.0.0</version.pt.ist.papyrus.client>
+        <version.com.itext>7.2.5</version.com.itext>
     </properties>
 
     <dependencies>
@@ -50,10 +50,40 @@
             <artifactId>papyrus-client</artifactId>
             <version>${version.pt.ist.papyrus.client}</version>
         </dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>kernel</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>layout</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>io</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>sign</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>pdfa</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>forms</artifactId>
+	    <version>${version.com.itext}</version>
+	</dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
-            <artifactId>itextpdf</artifactId>
-            <version>${version.com.itextpdf.itextpdf}</version>
+	    <artifactId>barcodes</artifactId>
+            <version>${version.com.itext}</version>
         </dependency>
         <dependency>
             <groupId>org.fenixedu</groupId>

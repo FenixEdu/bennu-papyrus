@@ -1,16 +1,13 @@
 package org.fenixedu.bennu.papyrus.service;
 
-import java.awt.Color;
-import java.awt.Image;
+import com.itextpdf.barcodes.BarcodeQRCode;
+import org.springframework.stereotype.Service;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
-import org.springframework.stereotype.Service;
-
-import com.itextpdf.text.pdf.BarcodeQRCode;
 
 /**
  * Created by Sérgio Silva (hello@fenixedu.org).
@@ -18,15 +15,18 @@ import com.itextpdf.text.pdf.BarcodeQRCode;
 
 @Service
 public class ITextQRCodeGenerator implements QRCodeGenerator {
-    
+
     @Override
     public byte[] generate(String identifier, int width, int height) throws QRCodeGenerationException {
         try (ByteArrayOutputStream bytes = new ByteArrayOutputStream()) {
-            BarcodeQRCode qrcode = new BarcodeQRCode(identifier, width, height, null);
-            Image awtImage = qrcode.createAwtImage(Color.BLACK, Color.WHITE);
-            BufferedImage buffer =
-                    new BufferedImage(awtImage.getWidth(null), awtImage.getHeight(null), BufferedImage.TYPE_INT_RGB);
-            buffer.getGraphics().drawImage(awtImage, 0, 0, null);
+            final BarcodeQRCode barcodeQRCode = new BarcodeQRCode(identifier);
+            final Image image = barcodeQRCode.createAwtImage(Color.BLACK, Color.WHITE)
+                    .getScaledInstance(width, height, Image.SCALE_SMOOTH);
+            BufferedImage buffer = new BufferedImage(image.getWidth(null),
+                    image.getHeight(null),
+                    BufferedImage.TYPE_INT_RGB
+            );
+            buffer.getGraphics().drawImage(image, 0, 0, null);
             ImageIO.write(buffer, "png", bytes);
             return bytes.toByteArray();
         } catch (IOException e) {
