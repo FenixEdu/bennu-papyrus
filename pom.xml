@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.fenixedu</groupId>
         <artifactId>fenix-framework-project</artifactId>
         <version>3.0.0-beta1</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <groupId>org.fenixedu</groupId>
@@ -29,9 +30,10 @@
     </scm>
 
     <properties>
-        <version.org.fenixedu.bennu>7.0.0</version.org.fenixedu.bennu>
+        <version.org.fenixedu.bennu>9.6.0</version.org.fenixedu.bennu>
+        <version.org.fenixedu.fenixedu-commons>6.7.2</version.org.fenixedu.fenixedu-commons>
         <version.pt.ist.papyrus.client>5.0.0</version.pt.ist.papyrus.client>
-        <version.com.itext>7.2.5</version.com.itext>
+        <version.javax.servlet.jstl>1.2</version.javax.servlet.jstl>
     </properties>
 
     <dependencies>
@@ -46,44 +48,14 @@
             <version>${version.org.fenixedu.bennu}</version>
         </dependency>
         <dependency>
+            <groupId>org.fenixedu</groupId>
+            <artifactId>fenixedu-commons</artifactId>
+            <version>${version.org.fenixedu.fenixedu-commons}</version>
+        </dependency>
+        <dependency>
             <groupId>pt.ist</groupId>
             <artifactId>papyrus-client</artifactId>
             <version>${version.pt.ist.papyrus.client}</version>
-        </dependency>
-	<dependency>
-	    <groupId>com.itextpdf</groupId>
-	    <artifactId>kernel</artifactId>
-	    <version>${version.com.itext}</version>
-	</dependency>
-	<dependency>
-	    <groupId>com.itextpdf</groupId>
-	    <artifactId>layout</artifactId>
-	    <version>${version.com.itext}</version>
-	</dependency>
-	<dependency>
-	    <groupId>com.itextpdf</groupId>
-	    <artifactId>io</artifactId>
-	    <version>${version.com.itext}</version>
-	</dependency>
-	<dependency>
-	    <groupId>com.itextpdf</groupId>
-	    <artifactId>sign</artifactId>
-	    <version>${version.com.itext}</version>
-	</dependency>
-	<dependency>
-	    <groupId>com.itextpdf</groupId>
-	    <artifactId>pdfa</artifactId>
-	    <version>${version.com.itext}</version>
-	</dependency>
-	<dependency>
-	    <groupId>com.itextpdf</groupId>
-	    <artifactId>forms</artifactId>
-	    <version>${version.com.itext}</version>
-	</dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-	    <artifactId>barcodes</artifactId>
-            <version>${version.com.itext}</version>
         </dependency>
         <dependency>
             <groupId>org.fenixedu</groupId>
@@ -93,7 +65,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${version.javax.servlet.jstl}</version>
         </dependency>
     </dependencies>
     <distributionManagement>
